@@ -1,0 +1,41 @@
+name: Build convoX APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:   # lets you trigger the build manually from the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.6'
+
+      - name: Check Supabase config was filled in
+        run: |
+          if grep -q "YOUR_PROJECT_ID" app/src/main/java/com/convox/app/util/Supa.kt; then
+            echo "::error::Edit app/src/main/java/com/convox/app/util/Supa.kt and paste your Supabase URL and anon key (see README step 1)."
+            exit 1
+          fi
+
+      - name: Build debug APK
+        run: gradle assembleDebug --no-daemon
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: convoX-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk

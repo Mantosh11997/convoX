@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center"
+    android:padding="28dp" android:background="@color/screen_bg">
+
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Create Account ✨"
+        android:textColor="@color/black" android:textSize="28sp" android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" android:layout_marginBottom="32dp"
+        android:text="Sign up to get started"
+        android:textColor="@color/wa_gray_text" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent" android:layout_height="54dp"
+        android:background="@drawable/bg_input" android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:hint="Unique username" android:inputType="text"
+        android:textColor="@color/black" android:textColorHint="@color/wa_gray_text" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent" android:layout_height="54dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_input" android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:hint="Email" android:inputType="textEmailAddress"
+        android:textColor="@color/black" android:textColorHint="@color/wa_gray_text" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent" android:layout_height="54dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_input" android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:hint="Password (min 6 chars)" android:inputType="textPassword"
+        android:textColor="@color/black" android:textColorHint="@color/wa_gray_text" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" android:textColor="@color/wa_red" android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="match_parent" android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_gradient"
+        android:text="Sign Up" android:textAllCaps="false"
+        android:textColor="@color/white" android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvGoToLogin"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="22dp" android:padding="8dp"
+        android:text="Already have an account? Login"
+        android:textColor="@color/wa_dark_green" />
+
+</LinearLayout>
